@@ -20,12 +20,12 @@ public class VCam1_Movements : MonoBehaviour
 
         if (horizontal < 0)
         {
-            vCamPos = Mathf.Clamp(vCamPos + 0.003f, 0.2f, 0.7f);
+            vCamPos = Mathf.Clamp(vCamPos + 0.002f, 0.2f, 0.7f);
             framingTransposer.m_ScreenX = vCamPos;
         }
         else if (horizontal > 0)
         {
-            vCamPos = Mathf.Clamp(vCamPos - 0.003f, 0.2f, 0.7f);
+            vCamPos = Mathf.Clamp(vCamPos - 0.002f, 0.2f, 0.7f);
             framingTransposer.m_ScreenX = vCamPos;
         }
     }
