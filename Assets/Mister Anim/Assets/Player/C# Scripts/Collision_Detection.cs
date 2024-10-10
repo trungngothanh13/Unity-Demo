@@ -19,19 +19,24 @@ public class Collision_Detection : MonoBehaviour
 
 
     }
+
+    void destroyPlayer()
+    {
+        Destroy(gameObject);
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
 
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
             isHit = true;
+            Invoke("destroyPlayer", 2.0f);
         }
         Debug.Log("Collided with: " + collision.gameObject.name);
 
         Debug.Log("Updating IsHit: " + isHit);
         animator.SetBool("IsHit", isHit);
-
+        
 
     }
 
