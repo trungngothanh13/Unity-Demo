@@ -30,7 +30,7 @@ public class Collision_Detection : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             isHit = true;
-            Invoke("destroyPlayer", 2.0f);
+            Invoke("destroyPlayer", 0.4f);
         }
         Debug.Log("Collided with: " + collision.gameObject.name);
 
