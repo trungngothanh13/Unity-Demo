@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision_Detection : MonoBehaviour
+public class Win_Collision_Detection : MonoBehaviour
 {
     private Animator animator;
-    private bool isHit = false;
+    private bool chestTouched = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,23 +20,15 @@ public class Collision_Detection : MonoBehaviour
 
     }
 
-    void destroyPlayer()
-    {
-        Destroy(gameObject);
-    }
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            isHit = true;
-            if (enabled)
-                Invoke("destroyPlayer", 1f);
-        }
+        if (collision.gameObject.CompareTag("Player"))
+            chestTouched = true;
 
         Debug.Log("Collided with: " + collision.gameObject.name);
 
-        animator.SetBool("IsHit", isHit);
+        animator.SetBool("ChestTouched", chestTouched);
+
     }
 
 
