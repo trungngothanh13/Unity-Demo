@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class SimpleCharacterMovement : MonoBehaviour
 {
-    public float speed = 10f;             // Movement speed
-    public float jumpForce = 10f;          // Force applied for jumping
-    public float shortJumpMultiplier = 0.5f;  // Multiplier for a short jump
+    public float speed = 10f;
+    public float jumpForce = 10f;
+    public float shortJumpMultiplier = 0.5f;
     public Transform groundCheck;         // Point to check if the character is on the ground
     public LayerMask groundLayer;         // Layer representing the ground
     private Rigidbody2D rb;               // Rigidbody2D component for movement
     private Animator animator;
     private bool isGrounded;
     private bool isJumping;
+    //private bool isImmobilized;           // Track if the character is immobilized
 
     void Start()
     {
@@ -20,10 +21,15 @@ public class SimpleCharacterMovement : MonoBehaviour
 
     void Update()
     {
+        //if (isImmobilized) // Prevent movement if immobilized
+        //{
+        //    rb.velocity = new Vector2(0, rb.velocity.y); // Stop horizontal movement but keep vertical velocity (e.g., gravity)
+        //    return;
+        //}
+
         float horizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(horizontal * speed, rb.velocity.y);
-        // Apply the movement to the Rigidbody2D
-        rb.velocity = movement;
+        Vector2 movement = new Vector2(horizontal * speed, rb.velocity.y);  // Apply the movement to the Rigidbody2D
+        rb.velocity = movement; 
 
         if (horizontal != 0)
         {
@@ -32,14 +38,12 @@ public class SimpleCharacterMovement : MonoBehaviour
             transform.localScale = characterScale;
         }
 
-        // Check if the character is on the ground using groundCheck
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer); // Check if the character is on the ground using groundCheck
 
-        // Jump when the player presses the jump button and is on the ground
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded) // Jump when the player presses the jump button and is on the ground
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);  // Apply vertical jump force
-            isJumping = true;  // Mark that the character is jumping
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isJumping = true;
         }
 
         // If the jump button is released before reaching the peak of the jump, reduce the jump height
