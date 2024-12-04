@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinChest_Collision : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class WinChest_Collision : MonoBehaviour
     void Update()
     {
 
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -27,9 +27,14 @@ public class WinChest_Collision : MonoBehaviour
             chestTouched = true;
             Debug.Log("Collided with: " + collision.gameObject.name);
             animator.SetBool("ChestTouched", chestTouched);
+
+            Invoke("YouWin", 3f);
         }
 
     }
 
-
+    void YouWin()
+    {
+        SceneManager.LoadScene("You Win");
+    }
 }

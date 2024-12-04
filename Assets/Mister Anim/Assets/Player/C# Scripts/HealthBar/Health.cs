@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting; // Ensure this is included for IEnumerator
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -21,10 +22,6 @@ public class Health : MonoBehaviour
         characterMovement = GetComponent<SimpleCharacterMovement>(); // Get reference to movement script
     }
 
-    void destroyPlayer()
-    {
-        Destroy(gameObject);
-    }
 
     void TakeDamage(float damage)
     {
@@ -45,7 +42,7 @@ public class Health : MonoBehaviour
                 animator.SetBool("IsDead", isDead);
                 if (characterMovement != null)
                     characterMovement.enabled = false;
-                Invoke("destroyPlayer", 1f);
+                Invoke("YouLose", 3f);
             }
         }
     }
@@ -75,6 +72,11 @@ public class Health : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Explosion") && enabled)
             TakeDamage(currentHealth);
+    }
+
+    void YouLose()
+    {
+        SceneManager.LoadScene("You Lose");
     }
 
 }
