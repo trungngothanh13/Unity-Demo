@@ -1,5 +1,6 @@
 using UnityEngine;
-using System.Collections; // Ensure this is included for IEnumerator
+using System.Collections;
+using Unity.VisualScripting; // Ensure this is included for IEnumerator
 
 public class Health : MonoBehaviour
 {
@@ -69,6 +70,11 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile") && enabled)
             TakeDamage(1f);
+    }
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Explosion") && enabled)
+            TakeDamage(currentHealth);
     }
 
 }
