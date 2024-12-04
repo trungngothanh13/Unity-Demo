@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2919361900686270585}
   - component: {fileID: 4565730676036587658}
   m_Layer: 0
-  m_Name: MyFace
+  m_Name: Little Spike Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,10 +205,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 2.25
   m_Material: {fileID: 6200000, guid: 178ec94adefb4e9438945b0d65042316, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
