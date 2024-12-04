@@ -11435,7 +11435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af232c5ad14fd2b4d96c0ca6b39ced19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 1
+  delayTime: 30
   newColor: {r: 0.6591066, g: 1, b: 0.5801887, a: 1}
 --- !u!212 &212723613169144353
 SpriteRenderer:
