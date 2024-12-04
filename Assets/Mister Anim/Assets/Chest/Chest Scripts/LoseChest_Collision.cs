@@ -8,7 +8,9 @@ public class LoseChest_Collision : MonoBehaviour
     private bool chestTouched = false;
 
     public GameObject chillGuyPrefab;
+    public GameObject explosionPrefab;
     private bool chillGuySpawned = false;
+    //private bool explosionSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,8 @@ public class LoseChest_Collision : MonoBehaviour
             chestTouched = true;
             Debug.Log("Collided with: " + collision.gameObject.name);
             animator.SetBool("ChestTouched", chestTouched);
-
             SpawnChillGuy();
+            Invoke("SpawnExplosion", 3f);
         }
 
     }
@@ -46,10 +48,10 @@ public class LoseChest_Collision : MonoBehaviour
 
             chillGuySpawned = true;
         }
-        else
-        {
-            Debug.LogError("Chill Guy Prefab is not assigned!");
-        }
     }
-
+    void SpawnExplosion()
+    {
+        if (chillGuyPrefab != null)
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity); // Instantiate the Explosion prefab at chest
+    }
 }
