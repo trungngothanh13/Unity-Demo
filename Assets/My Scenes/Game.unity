@@ -1697,6 +1697,7 @@ GameObject:
   - component: {fileID: 224737135}
   - component: {fileID: 224737134}
   - component: {fileID: 224737133}
+  - component: {fileID: 224737136}
   m_Layer: 0
   m_Name: Retro Chest
   m_TagString: Chest
@@ -1837,6 +1838,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &224737136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224737131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acbaa5d4a4e6ca429c8c45832e44896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chillGuyPrefab: {fileID: 3790146709878859242, guid: cdb553d117bf79a4d96011f92bc65b18, type: 3}
 --- !u!1001 &265503223
 PrefabInstance:
   m_ObjectHideFlags: 0
