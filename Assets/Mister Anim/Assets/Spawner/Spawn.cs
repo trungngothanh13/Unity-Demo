@@ -6,7 +6,8 @@ public class FaceSpawner : MonoBehaviour
     public GameObject facePrefab;     // Reference to the Face prefab
     public float spawnInterval = 1f;  // Time interval between spawns
     public float spawnHeight = 5f;    // Height at which to spawn the object
-    public float spawnRangeX = 10f;   // Range for random spawn positions in X
+    public float spawnRangeLeft = -40f;   // Range for left side spawn border
+    public float spawnRangeRight = 40f;   // Range for right side spawn border
     public int maxFaceCount = 10;      // Maximum number of faces allowed
 
     private List<GameObject> spawnedFaces = new List<GameObject>();
@@ -20,7 +21,7 @@ public class FaceSpawner : MonoBehaviour
     private void SpawnFace()
     {
         // Generate a random X position within the specified range
-        float randomX = Random.Range(-spawnRangeX, spawnRangeX);
+        float randomX = Random.Range(spawnRangeLeft, spawnRangeRight);
         Vector3 spawnPosition = new Vector3(randomX, spawnHeight, 0);
 
         // Instantiate the facePrefab at the spawnPosition
