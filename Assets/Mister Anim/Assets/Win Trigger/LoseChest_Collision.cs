@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Win_Collision_Detection : MonoBehaviour
+public class LoseChest_Collision : MonoBehaviour
 {
     private Animator animator;
     private bool chestTouched = false;
@@ -23,11 +23,11 @@ public class Win_Collision_Detection : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
             chestTouched = true;
-
-        Debug.Log("Collided with: " + collision.gameObject.name);
-
-        animator.SetBool("ChestTouched", chestTouched);
+            Debug.Log("Collided with: " + collision.gameObject.name);
+            animator.SetBool("ChestTouched", chestTouched);
+        }
 
     }
 
