@@ -21,11 +21,6 @@ public class SimpleCharacterMovement : MonoBehaviour
 
     void Update()
     {
-        //if (isImmobilized) // Prevent movement if immobilized
-        //{
-        //    rb.velocity = new Vector2(0, rb.velocity.y); // Stop horizontal movement but keep vertical velocity (e.g., gravity)
-        //    return;
-        //}
 
         float horizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontal * speed, rb.velocity.y);  // Apply the movement to the Rigidbody2D

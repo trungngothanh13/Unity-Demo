@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoseChest_Collision : MonoBehaviour
+public class LoseChest_Collision : Chest_Collision
 {
     private Animator animator;
     private bool chestTouched = false;
@@ -10,7 +10,6 @@ public class LoseChest_Collision : MonoBehaviour
     public GameObject chillGuyPrefab;
     public GameObject explosionPrefab;
     private bool chillGuySpawned = false;
-    //private bool explosionSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +17,8 @@ public class LoseChest_Collision : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !chillGuySpawned)
         {
